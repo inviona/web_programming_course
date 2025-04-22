@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <style>
+        /* External CSS (within the same document) */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .option-group {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .radio-item, .checkbox-item {
+            margin: 5px 0;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .submit-btn {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .reset-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Registration Form</h1>
+    
+    <p style="text-align: center; color: #7f8c8d; font-style: italic;">Please complete the form below to register for our upcoming conference. All fields marked with an asterisk (*) are required.</p>
+    
+    <form action="#" method="post">
+        <h2>Personal Information</h2>
+        
+        <!-- Textboxes with labels -->
+        <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" class="form-control" required style="border: 2px solid #3498db;">
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" class="form-control" required style="border: 2px solid #3498db;">
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="organization">Organization/Company</label>
+            <input type="text" id="organization" name="organization" class="form-control">
+        </div>
+        
+        <!-- Radio button group -->
+        <div class="option-group" style="border-left: 4px solid #9b59b6;">
+            <h2>Professional Role</h2>
+            <p>Please select your primary professional role:</p>
+            
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" id="developer" name="role" value="developer">
+                    <label for="developer">Developer</label>
+                </div>
+                
+                <div class="radio-item">
+                    <input type="radio" id="designer" name="role" value="designer">
+                    <label for="designer">Designer</label>
+                </div>
+                
+                <div class="radio-item">
+                    <input type="radio" id="manager" name="role" value="manager">
+                    <label for="manager">Project Manager</label>
+                </div>
+                
+                <div class="radio-item">
+                    <input type="radio" id="other" name="role" value="other">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Checkbox group -->
+        <div class="option-group" style="border-left: 4px solid #f39c12;">
+            <h2>Areas of Interest</h2>
+            <p>Select all topics that interest you:</p>
+            
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="webdev" name="interests" value="webdev">
+                    <label for="webdev">Web Development</label>
+                </div>
+                
+                <div class="checkbox-item">
+                    <input type="checkbox" id="mobile" name="interests" value="mobile">
+                    <label for="mobile">Mobile Applications</label>
+                </div>
+                
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ai" name="interests" value="ai">
+                    <label for="ai">Artificial Intelligence</label>
+                </div>
+                
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ux" name="interests" value="ux">
+                    <label for="ux">User Experience Design</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dropdown/Combo box -->
+        <div class="form-group">
+            <label for="attendance">Attendance Days *</label>
+            <select id="attendance" name="attendance" class="form-control" required style="background-color: #ecf0f1;">
+                <option value="">-- Please Select --</option>
+                <option value="full">Full Conference (3 days)</option>
+                <option value="first">Day 1 Only</option>
+                <option value="second">Day 2 Only</option>
+                <option value="third">Day 3 Only</option>
+                <option value="firstSecond">Days 1 & 2</option>
+                <option value="secondThird">Days 2 & 3</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="comments">Additional Comments</label>
+            <textarea id="comments" name="comments" class="form-control" rows="4" style="resize: vertical;"></textarea>
+        </div>
+        
+        <!-- Submit and Reset buttons -->
+        <div class="buttons">
+            <button type="reset" class="reset-btn">Clear Form</button>
+            <button type="submit" class="submit-btn" style="box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Submit Registration</button>
+        </div>
+    </form>
+    
+    <p style="text-align: center; margin-top: 30px; font-size: 0.9em;">Thank you for your interest in our event. You will receive a confirmation email after submitting your registration.</p>
+</body>
+</html>
