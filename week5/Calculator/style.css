@@ -1,0 +1,222 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  transition: all 0.5s ease;
+}
+
+body {
+  font-family: 'Quicksand', 'Comfortaa', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+body {
+  background: rgb(255, 183, 213);
+  background: radial-gradient(
+    circle,
+    rgba(255, 183, 213, 1) 0%,
+    rgba(199, 160, 246, 1) 100%
+  );
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+}
+
+.calculator {
+  position: relative;
+  height: auto;
+  width: auto;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(219, 127, 142, 0.6);
+}
+
+.theme-toggler {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.theme-toggler.active {
+  color: #f06292;
+}
+
+.theme-toggler.active::before {
+  background-color: #fff;
+}
+
+.theme-toggler::before {
+  content: "";
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: #f06292;
+  z-index: -1;
+}
+
+#display {
+  margin: 0 10px;
+  height: 150px;
+  width: auto;
+  max-width: 270px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 30px;
+  margin-bottom: 20px;
+  overflow-x: scroll;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+#display::-webkit-scrollbar {
+  display: block;
+  height: 3px;
+}
+
+#display::-webkit-scrollbar-thumb {
+  background-color: #f48fb1;
+  border-radius: 10px;
+}
+
+button {
+  height: 60px;
+  width: 60px;
+  border: 0;
+  border-radius: 30px;
+  margin: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+button#equal {
+  height: 130px;
+}
+
+/* light theme - girly pastels */
+.calculator {
+  background-color: #fff8fd;
+  border: 3px solid #ffd6e7;
+}
+
+.calculator #display {
+  color: #b76e79;
+  background-color: #fff0f5;
+  box-shadow: inset 0 0 10px rgba(219, 127, 142, 0.2);
+}
+
+.calculator button#clear {
+  background-color: #ffbcd9;
+  color: #ffffff;
+}
+
+.calculator button.btn-number {
+  background-color: #e2f0fe;
+  color: #7b9acc;
+}
+
+.calculator button.btn-operator {
+  background-color: #f7cefd;
+  color: #9966cc;
+}
+
+.calculator button.btn-equal {
+  background-color: #b8e0d2;
+  color: #ffffff;
+  background-image: linear-gradient(to right, #b8e0d2, #adcbe3);
+}
+
+/* dark theme - elegant dark tones with purple/pink accents */
+.calculator.dark {
+  background-color: #2b1b2c;
+  border: 3px solid #523156;
+}
+
+.calculator.dark #display {
+  color: #ffc2e2;
+  background-color: #3a2a3a;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.calculator.dark button#clear {
+  background-color: #d64c7f;
+  color: #ffffff;
+}
+
+.calculator.dark button.btn-number {
+  background-color: #523156;
+  color: #fec5e5;
+}
+
+.calculator.dark button.btn-operator {
+  background-color: #8b6c9c;
+  color: #ffffff;
+}
+
+.calculator.dark button.btn-equal {
+  background-color: #bb5c96;
+  color: #ffffff;
+  background-image: linear-gradient(to right, #bb5c96, #8b6c9c);
+}
+
+/* Adding shimmer effect to buttons */
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.calculator button:hover {
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.calculator button#clear:hover {
+  background-image: linear-gradient(90deg, #ffbcd9 25%, #ffd6e7 50%, #ffbcd9 75%);
+}
+
+.calculator.dark button#clear:hover {
+  background-image: linear-gradient(90deg, #d64c7f 25%, #e87ea7 50%, #d64c7f 75%);
+}
+
+.calculator button.btn-number:hover {
+  background-image: linear-gradient(90deg, #e2f0fe 25%, #d3e5fb 50%, #e2f0fe 75%);
+}
+
+.calculator.dark button.btn-number:hover {
+  background-image: linear-gradient(90deg, #523156 25%, #6b4270 50%, #523156 75%);
+}
+
+.calculator button.btn-operator:hover {
+  background-image: linear-gradient(90deg, #f7cefd 25%, #ffe0ff 50%, #f7cefd 75%);
+}
+
+.calculator.dark button.btn-operator:hover {
+  background-image: linear-gradient(90deg, #8b6c9c 25%, #a782bc 50%, #8b6c9c 75%);
+}
