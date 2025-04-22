@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arsimi Baze</title>
-    <link rel="stylesheet" href="arsimi-baze.css">
+    <title>Arsimi Bazë</title>
+    <link rel="stylesheet" href="main.css"> <!-- Main shared styles -->
+    <link rel="stylesheet" href="forms.css"> <!-- New shared form styles -->
+    <style>
+        /* Page specific styles */
+        .page-title {
+            text-align: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 40px 0 30px;
+            color: #1a237e;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,51 +27,57 @@
         <nav>
             <ul>
                 <li><a href="main.html">Home</a></li>
-                <li><a href="arsimi-i-larte.html">Arsimi i Larte</a></li>
-                <li><a href="arsimi-baze.html">Arsimi Baze</a></li>
-                <li><a href="arsimi-mesem.html">Arsimi i Mesem</a></li>
-                
+                <li><a href="arsimi-i-larte.html">Arsimi i Lartë</a></li>
+                <li><a href="arsimi-baze.html">Arsimi Bazë</a></li>
+                <li><a href="arsimi-mesem.html">Arsimi i Mesëm</a></li>
             </ul>
         </nav>
     </header>
-    <h2>Pyetësor për Prindërit</h2>
+
+    <h2 class="page-title">Pyetësor për Prindërit</h2>
+    
     <main>
         <form id="arsimiBazeForm">
+            <h3 class="form-title">Informacioni i Prindit dhe Fëmijës</h3>
+            
             <div class="form-group">
                 <label for="prindi">Emri i Prindit:</label>
-                <input type="text" id="prindi" name="prindi" required>
+                <input type="text" id="prindi" name="prindi" required placeholder="Shkruani emrin tuaj">
             </div>
+            
             <div class="form-group">
                 <label for="femija">Emri i Fëmijës:</label>
-                <input type="text" id="femija" name="femija" required>
+                <input type="text" id="femija" name="femija" required placeholder="Shkruani emrin e fëmijës">
             </div>
+            
             <div class="form-group">
                 <label for="mbiemri">Mbiemri:</label>
-                <input type="text" id="mbiemri" name="mbiemri" required>
+                <input type="text" id="mbiemri" name="mbiemri" required placeholder="Shkruani mbiemrin">
             </div>
+            
             <div class="form-group">
                 <label for="klasa">Klasa:</label>
-                <input type="number" id="klasa" name="klasa" min="1" max="9" required>
+                <input type="number" id="klasa" name="klasa" min="1" max="9" required placeholder="1-9">
             </div>
+            
             <div class="form-group">
                 <label for="tekste">Çfarë mendimi keni për cilësinë e teksteve?</label>
-                <textarea id="tekste" name="tekste" rows="3" required></textarea>
+                <textarea id="tekste" name="tekste" rows="4" required placeholder="Ju lutem ndani mendimin tuaj..."></textarea>
             </div>
+            
             <div class="form-group">
                 <label for="mjedisi">Çfarë mendimi keni për mjediset e shkollës dhe të klasës së fëmijës suaj?</label>
-                <textarea id="mjedisi" name="mjedisi" rows="3" required></textarea>
+                <textarea id="mjedisi" name="mjedisi" rows="4" required placeholder="Ju lutem ndani mendimin tuaj..."></textarea>
             </div>
-            <button type="submit">Dërgo</button>
+            
+            <button type="submit">Dërgo Formularin</button>
         </form>
     </main>
-    <script>
-        document.getElementById('arsimiBazeForm').addEventListener('submit', function(event) {
-            const klasa = document.getElementById('klasa').value;
-            if (klasa < 1 || klasa > 9) {
-                alert('Ju lutem vendosni një vlerë nga 1 deri në 9 për klasën.');
-                event.preventDefault();
-            }
-        });
-    </script>
+    
+    <footer>
+        <p>&copy; 2025 Inviona's News - Të gjitha të drejtat e rezervuara</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
