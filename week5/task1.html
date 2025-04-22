@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Number Operations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h2 {
+      color: #4CAF50;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px 0;
+      width: 100%;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .result {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Number Operations</h1>
+
+  <div class="section">
+    <h2>1. Add Two Numbers</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button onclick="addNumbers()">Calculate Sum</button>
+    <div class="result" id="sumResult"></div>
+  </div>
+
+  <div class="section">
+    <h2>2. Sum of Digits</h2>
+    <input type="number" id="digitInput" placeholder="Enter a number">
+    <button onclick="sumDigits()">Calculate Digit Sum</button>
+    <div class="result" id="digitSumResult"></div>
+  </div>
+
+  <div class="section">
+    <h2>3. Inverse of a Number</h2>
+    <input type="number" id="inverseInput" placeholder="Enter a number">
+    <button onclick="getInverse()">Show Inverse</button>
+    <div class="result" id="inverseResult"></div>
+  </div>
+
+  <div class="section">
+    <h2>4. Even or Odd</h2>
+    <input type="number" id="evenOddInput" placeholder="Enter a number">
+    <button onclick="checkEvenOdd()">Check</button>
+    <div class="result" id="evenOddResult"></div>
+  </div>
+
+  <script>
+    function addNumbers() {
+      const a = Number(document.getElementById("num1").value);
+      const b = Number(document.getElementById("num2").value);
+      document.getElementById("sumResult").innerText = "Sum: " + (a + b);
+    }
+
+    function sumDigits() {
+      const num = Math.abs(Number(document.getElementById("digitInput").value));
+      let sum = 0;
+      let temp = num;
+      while (temp > 0) {
+        sum += temp % 10;
+        temp = Math.floor(temp / 10);
+      }
+      document.getElementById("digitSumResult").innerText = "Sum of digits: " + sum;
+    }
+
+    function getInverse() {
+      const num = Number(document.getElementById("inverseInput").value);
+      if (num !== 0) {
+        document.getElementById("inverseResult").innerText = "Inverse: " + (1 / num);
+      } else {
+        document.getElementById("inverseResult").innerText = "Cannot divide by zero!";
+      }
+    }
+
+    function checkEvenOdd() {
+      const num = Number(document.getElementById("evenOddInput").value);
+      const result = num % 2 === 0 ? "Even" : "Odd";
+      document.getElementById("evenOddResult").innerText = "The number is: " + result;
+    }
+  </script>
+
+</body>
+</html>
