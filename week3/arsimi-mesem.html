@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsimi i Mesëm</title>
+    <link rel="stylesheet" href="arsimi-mesem.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="News Logo">
+            <h1>Inviona's News</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main.html">Home</a></li> 
+                <li><a href="arsimi-i-larte.html">Arsimi i Larte</a></li>
+                <li><a href="arsimi-baze.html">Arsimi Baze</a></li>
+                <li><a href="arsimi-mesem.html">Arsimi i Mesëm</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2 class="title">Pyetësor për Arsimin e Mesëm</h2>
+    <main>
+        <form id="arsimiMesemForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="mbiemri">Mbiemri:</label>
+                <input type="text" id="mbiemri" name="mbiemri" required>
+            </div>
+            <div class="form-group">
+                <label>Gjinia:</label>
+                <input type="radio" name="gjinia" value="Femer" required> Femër
+                <input type="radio" name="gjinia" value="Mashkull" required> Mashkull
+            </div>
+            <div class="form-group">
+                <label for="ditelindja">Data e lindjes:</label>
+                <select id="dita" name="dita" required>
+                    <option value="">Dita</option>
+                    <script>
+                        for (let i = 1; i <= 31; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+                <select id="muaji" name="muaji" required>
+                    <option value="">Muaji</option>
+                    <option value="1">Janar</option>
+                    <option value="2">Shkurt</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Prill</option>
+                    <option value="5">Maj</option>
+                    <option value="6">Qershor</option>
+                    <option value="7">Korrik</option>
+                    <option value="8">Gusht</option>
+                    <option value="9">Shtator</option>
+                    <option value="10">Tetor</option>
+                    <option value="11">Nëntor</option>
+                    <option value="12">Dhjetor</option>
+                </select>
+                <select id="viti" name="viti" required>
+                    <option value="">Viti</option>
+                    <script>
+                        for (let i = 2000; i <= 2020; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="vendilindja">Vendilindja:</label>
+                <select id="vendilindja" name="vendilindja" required>
+                    <option value="">Zgjidh qytetin</option>
+                    <option value="Tirane">Tiranë</option>
+                    <option value="Durres">Durrës</option>
+                    <option value="Shkoder">Shkodër</option>
+                    <option value="Elbasan">Elbasan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nrtel">Nr. Telefonit:</label>
+                <input type="tel" id="nrtel" name="nrtel" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group">
+                <label for="lenda">Lënda e preferuar:</label>
+                <select id="lenda" name="lenda" required>
+                    <option value="">Zgjidh lëndën</option>
+                    <option value="Matematike">Matematikë</option>
+                    <option value="Fizike">Fizikë</option>
+                    <option value="Kimi">Kimi</option>
+                    <option value="Biologji">Biologji</option>
+                    <option value="Histori">Histori</option>
+                    <option value="Gjeografi">Gjeografi</option>
+                    <option value="Gjuhë shqipe">Gjuhë shqipe</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Preferoni lëndët shoqërore apo shkencore?</label>
+                <input type="radio" name="preferenca" value="Shoqerore" required> Shoqërore
+                <input type="radio" name="preferenca" value="Shkencore" required> Shkencore
+            </div>
+            <button type="submit">Dërgo</button>
+        </form>
+    </main>
+    <script>
+        document.getElementById('arsimiMesemForm').addEventListener('submit', function(event) {
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('nrtel').value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phonePattern = /^[0-9]{10}$/;
+            
+            if (!emailPattern.test(email)) {
+                alert('Ju lutem vendosni një email të vlefshëm.');
+                event.preventDefault();
+            }
+            if (!phonePattern.test(phone)) {
+                alert('Ju lutem vendosni një numër telefoni me 10 shifra.');
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
