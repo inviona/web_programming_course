@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        /* CSS Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #34495e;
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+        }
+        
+        nav a:hover {
+            background-color: #4a6785;
+            border-radius: 4px;
+        }
+        
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        article {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        figure {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        figcaption {
+            font-style: italic;
+            margin-top: 0.5rem;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .full-width {
+            grid-column: span 2;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        input[type="color"] {
+            height: 40px;
+            padding: 2px;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .submit-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .reset-btn {
+            background-color: #e74c3c;
+        }
+        
+        .reset-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .inline-fields {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .inline-fields input {
+            flex: 1;
+        }
+        
+        .help-text {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Advanced User Profile Form</h1>
+        <p>Complete your profile with detailed information</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#personal">Personal Info</a></li>
+            <li><a href="#contact">Contact Details</a></li>
+            <li><a href="#preferences">Preferences</a></li>
+            <li><a href="#employment">Employment</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <article>
+            <h2>User Profile Details</h2>
+            <p>Please fill in the information below to complete your profile. Fields marked with an asterisk (*) are required.</p>
+            
+            <figure>
+                <img src="form.png" alt="Form completion guide">
+                <figcaption>Complete all sections to enhance your user experience</figcaption>
+            </figure>
+            
+            <form action="#" method="post">
+                <!-- Personal Information Section -->
+                <div class="form-group full-width" id="personal">
+                    <h3>Personal Information</h3>
+                </div>
+                
+                <div class="form-group">
+                    <label for="firstName">First Name*</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" autocomplete="given-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Last Name*</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" autocomplete="family-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthDate">Date of Birth*</label>
+                    <input type="date" id="birthDate" name="birthDate" autocomplete="bday" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender">
+                        <option value="">Prefer not to say</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="nonbinary">Non-binary</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <!-- Contact Information Section -->
+                <div class="form-group full-width" id="contact">
+                    <h3>Contact Information</h3>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email" placeholder="example@domain.com" autocomplete="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(355) 69-12-34-567" autocomplete="tel" pattern="[0-9\s\(\)\-\+]+" required>
+                    <p class="help-text">Format: (355) 69-12-34-567</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="website">Personal Website</label>
+                    <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" autocomplete="url">
+                </div>
+                
+                <div class="form-group">
+                    <label for="socialProfile">Social Media Profile</label>
+                    <input type="url" id="socialProfile" name="socialProfile" placeholder="https://linkedin.com/in/yourusername">
+                </div>
+                
+                <!-- Address Section -->
+                <div class="form-group full-width">
+                    <label for="address">Street Address*</label>
+                    <input type="text" id="address" name="address" placeholder="Street '28 Nentori'" autocomplete="street-address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">City*</label>
+                    <input type="text" id="city" name="city" placeholder="City" autocomplete="address-level2" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="state">State/Province*</label>
+                    <input type="text" id="state" name="state" placeholder="State" autocomplete="address-level1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="zipCode">Postal/Zip Code*</label>
+                    <input type="text" id="zipCode" name="zipCode" placeholder="3000" autocomplete="postal-code" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="country">Country*</label>
+                    <input type="text" id="country" name="country" placeholder="Country" autocomplete="country-name" list="countryList" required>
+                    <datalist id="countryList">
+                        <option value="United States"></option>
+                        <option value="Canada"></option>
+                        <option value="United Kingdom"></option>
+                        <option value="Germany"></option>
+                        <option value="France"></option>
+                        <option value="Brazil"></option>
+                    </datalist>
+                </div>
+                
+                <!-- Preferences Section -->
+                <div class="form-group full-width" id="preferences">
+                    <h3>User Preferences</h3>
+                </div>
+                
+                <div class="form-group">
+                    <label for="weeklyUpdates">Weekly Updates Day</label>
+                    <select id="weeklyUpdates" name="weeklyUpdates">
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="saturday">Saturday</option>
+                        <option value="sunday">Sunday</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="language">Preferred Language</label>
+                    <input type="text" id="language" name="language" placeholder="Start typing..." list="languageList">
+                    <datalist id="languageList">
+                        <option value="English"></option>
+                        <option value="Spanish"></option>
+                        <option value="French"></option>
+                        <option value="German"></option>
+                        <option value="Polish"></option>
+                    </datalist>
+                </div>
+                
+                <!-- Employment Information -->
+                <div class="form-group full-width" id="employment">
+                    <h3>Employment Information</h3>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Current Company</label>
+                    <input type="text" id="company" name="company" placeholder="Company name" autocomplete="organization">
+                </div>
+                
+                <div class="form-group">
+                    <label for="jobTitle">Job Title</label>
+                    <input type="text" id="jobTitle" name="jobTitle" placeholder="Your position" autocomplete="organization-title">
+                </div>
+                
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="month" id="startDate" name="startDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="salary">Annual Salary</label>
+                    <input type="number" id="salary" name="salary" placeholder="50000" min="0" step="1000">
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="skills">Professional Skills</label>
+                    <input type="text" id="skills" name="skills" placeholder="Start typing your skills..." list="skillsList">
+                    <datalist id="skillsList">
+                        <option value="JavaScript"></option>
+                        <option value="Python"></option>
+                        <option value="SQL"></option>
+                        <option value="Data Analysis"></option>
+                        <option value="Project Management"></option>
+                        <option value="Digital Marketing"></option>
+                        <option value="UX/UI Design"></option>
+                        <option value="Content Writing"></option>
+                    </datalist>
+                    <p class="help-text">Enter multiple skills separated by commas</p>
+                </div>
+                
+                <!-- Additional Information -->
+                <div class="form-group full-width">
+                    <label for="bio">Bio/About Me</label>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                </div>
+                
+                <div class="form-group full-width submit-group">
+                    <button type="reset" class="reset-btn">Reset Form</button>
+                    <button type="submit">Submit Information</button>
+                </div>
+            </form>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Inviona Hoxha. All rights reserved.</p>
+        <p>Your data is securely stored and protected in accordance with our privacy policy.</p>
+    </footer>
+
+</body>
+</html>
